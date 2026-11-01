@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratik Baingane | Business Analytics Portfolio</title>
+<meta name="description" content="Portfolio of Pratik Baingane, MSc Business Analytics (Lancaster University): projects, experience, education, certifications and contact.">
+<style>
+  :root{
+    --navy:#0b1f3a; --navy-2:#13294b; --ink:#1a2433; --muted:#5d6b7e;
+    --line:#dfe4ec; --bg:#f5f7fa; --white:#ffffff; --accent:#b08d57; --accent-dark:#8f6f3e;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* Navigation */
+  .nav{position:sticky;top:0;z-index:20;background:rgba(11,31,58,.97);backdrop-filter:blur(6px)}
+  .nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .logo{font-family:var(--serif);font-size:1.15rem;color:#fff;letter-spacing:.3px}
+  .logo span{color:var(--accent)}
+  .nav ul{display:flex;gap:26px;list-style:none}
+  .nav a{color:#c5cfdd;font-size:.88rem;letter-spacing:.4px;transition:color .2s}
+  .nav a:hover{color:#fff}
+  @media(max-width:760px){.nav ul{gap:14px;overflow-x:auto}.nav a{font-size:.8rem}.logo{display:none}}
+
+  /* Hero */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:96px 0 84px}
+  .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:2.4px;font-size:.78rem;font-weight:600;margin-bottom:18px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,6vw,3.8rem);line-height:1.1;margin-bottom:16px}
+  .hero .lead{max-width:640px;color:#c9d3e1;font-size:1.08rem}
+  .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 26px;font-size:.92rem;font-weight:600;letter-spacing:.3px;border-radius:3px;border:1px solid var(--accent);transition:all .2s;cursor:pointer;font-family:inherit}
+  .btn.solid{background:var(--accent);color:#fff}
+  .btn.solid:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+  .btn.outline{color:#fff;border-color:rgba(255,255,255,.4)}
+  .btn.outline:hover{border-color:#fff}
+
+  /* Highlights strip */
+  .strip{background:var(--white);border-bottom:1px solid var(--line)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0}
+  .stat{padding:26px 20px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-family:var(--serif);font-size:1.35rem;color:var(--navy);font-weight:400}
+  .stat span{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  @media(max-width:700px){.stat{border-right:0;border-bottom:1px solid var(--line)}}
+
+  /* Sections */
+  section{padding:84px 0 0}
+  section:last-of-type{padding-bottom:84px}
+  .label{color:var(--accent-dark);text-transform:uppercase;letter-spacing:2.2px;font-size:.75rem;font-weight:700;margin-bottom:8px}
+  h2{font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--navy);margin-bottom:34px}
+  h3{font-size:1.08rem;color:var(--navy);font-weight:600}
+
+  /* About / skills */
+  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:48px}
+  @media(max-width:800px){.about{grid-template-columns:1fr;gap:28px}}
+  .about p{color:#3a4658;margin-bottom:14px}
+  .skill-group{margin-bottom:18px}
+  .skill-group h4{font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px;font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--white);border:1px solid var(--line);color:var(--navy);font-size:.84rem;padding:5px 12px;border-radius:3px}
+
+  /* Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+  .card{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--navy);padding:26px;transition:box-shadow .2s,transform .2s}
+  .card:hover{box-shadow:0 10px 28px rgba(11,31,58,.09);transform:translateY(-2px)}
+  .meta{font-size:.84rem;color:var(--muted);margin:4px 0 14px}
+  .card p{font-size:.95rem;color:#3a4658;margin-bottom:10px}
+  .card ul{padding-left:18px;font-size:.93rem;color:#3a4658}
+  .card li{margin-bottom:4px}
+  .card .chips{margin-top:16px}
+  .card .chip{font-size:.76rem;padding:3px 10px;background:var(--bg)}
+  .link{display:inline-block;margin-top:12px;font-size:.88rem;font-weight:600;color:var(--accent-dark)}
+  .link:hover{text-decoration:underline}
+
+  /* Timeline */
+  .timeline{position:relative;padding-left:34px}
+  .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .role{position:relative;background:var(--white);border:1px solid var(--line);padding:24px 26px;margin-bottom:20px}
+  .role::before{content:"";position:absolute;left:-34px;top:28px;width:16px;height:16px;border-radius:50%;background:var(--white);border:3px solid var(--accent)}
+  .role .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+  .role .when{font-size:.82rem;color:var(--muted)}
+  .role .org{color:var(--accent-dark);font-weight:600;font-size:.92rem;margin:2px 0 10px}
+  .role ul{padding-left:18px;font-size:.93rem;color:#3a4658}
+  .role li{margin-bottom:4px}
+
+  /* Contact */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:48px}
+  @media(max-width:800px){.contact{grid-template-columns:1fr;gap:30px}}
+  .contact-info p{color:#3a4658;margin-bottom:20px}
+  .contact-info dl dt{font-size:.74rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-top:14px}
+  .contact-info dl dd{font-size:.98rem;color:var(--navy)}
+  .contact-info dd a:hover{color:var(--accent-dark)}
+  form{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--accent);padding:28px;display:grid;gap:16px}
+  label{font-size:.82rem;font-weight:600;color:var(--navy);display:block;margin-bottom:5px}
+  input,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:3px;font:inherit;font-size:.95rem;color:var(--ink);background:#fcfdfe}
+  input:focus,textarea:focus{outline:2px solid var(--navy);outline-offset:-1px;background:#fff}
+  textarea{min-height:140px;resize:vertical}
+  form .btn{justify-self:start;background:var(--navy);border-color:var(--navy);color:#fff}
+  form .btn:hover{background:var(--navy-2)}
+  form .btn[disabled]{opacity:.6;cursor:wait}
+  #status{font-size:.9rem;font-weight:600;min-height:1.3em}
+  .hp{position:absolute;left:-9999px}
+
+  footer{background:var(--navy);color:#9fb0c6;text-align:center;padding:28px 20px;font-size:.85rem}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Pratik <span>Baingane</span></a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Business Analytics | Operations | Consulting</p>
+    <h1>Pratik Baingane</h1>
+    <p class="lead">
+      MSc Business Analytics graduate with over three years of experience in consultancy and operations,
+      including an investment banking setting at Morgan Stanley. I turn complex data into clear dashboards and sound decisions.
+    </p>
+    <div class="cta">
+      <a class="btn solid" href="#contact">Get in touch</a>
+      <a class="btn outline" href="#projects">View projects</a>
+      <!-- Optional: upload your CV as cv.pdf next to this file, then remove the comment markers
+      <a class="btn outline" href="cv.pdf" download>Download CV</a> -->
+    </div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><b>3+ years</b><span>Consultancy and operations</span></div>
+    <div class="stat"><b>MSc</b><span>Business Analytics, Lancaster</span></div>
+    <div class="stat"><b>Immediate</b><span>Available full time</span></div>
+    <div class="stat"><b>UK wide</b><span>Ready to relocate</span></div>
+  </div>
+</div>
+
+<main>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="label">About</p>
+      <h2>Profile</h2>
+      <div class="about">
+        <div>
+          <p>I am a business analytics professional who combines hands-on operations experience with strong technical skills. I have worked in investment banking operations at Morgan Stanley and led data-driven improvements in consultancy, and I have applied simulation modelling to healthcare problems at the NHS Strategy Unit.</p>
+          <p>I am looking to build a career in financial markets operations, client services and analytics, where accuracy, clear communication and data skills make a measurable difference.</p>
+        </div>
+        <div>
+          <div class="skill-group">
+            <h4>Technical</h4>
+            <div class="chips"><span class="chip">Python</span><span class="chip">R</span><span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">Google Workspace</span></div>
+          </div>
+          <div class="skill-group">
+            <h4>Analytical</h4>
+            <div class="chips"><span class="chip">Dashboards and KPIs</span><span class="chip">Simulation Modelling</span><span class="chip">Data Cleaning</span><span class="chip">Process Improvement</span></div>
+          </div>
+          <div class="skill-group">
+            <h4>Professional</h4>
+            <div class="chips"><span class="chip">Stakeholder Communication</span><span class="chip">Attention to Detail</span><span class="chip">Client Service</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="label">Selected Work</p>
+      <h2>Projects</h2>
+      <div class="grid">
+
+        <article class="card">
+          <h3>Live KPI Dashboard for Senior Management</h3>
+          <p class="meta">KC Overseas Education | Power BI, Microsoft Forms</p>
+          <p>Replaced error-prone daily spreadsheet tracking with Microsoft Forms that generate unique, traceable IDs. Built, with the data analyst team, a Power BI dashboard showing live team and individual KPIs.</p>
+          <ul>
+            <li>Removed manual data entry errors</li>
+            <li>Gave senior management real-time visibility</li>
+          </ul>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">Microsoft Forms</span><span class="chip">KPIs</span></div>
+          <!-- <a class="link" href="YOUR_LINK">View project &rarr;</a> -->
+        </article>
+
+        <article class="card">
+          <h3>MSc Dissertation: Diagnostic Pathway Simulation</h3>
+          <p class="meta">Lancaster University | Python, Discrete Event Simulation</p>
+          <p>Reproduced a published discrete event simulation model of a diagnostic pathway for children and young people, testing whether the published results can be replicated.</p>
+          <ul>
+            <li>Focus on reproducibility and validation</li>
+            <li>Clear documentation of findings and assumptions</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Simulation</span><span class="chip">Healthcare Analytics</span></div>
+          <!-- <a class="link" href="YOUR_GITHUB_LINK">View on GitHub &rarr;</a> -->
+        </article>
+
+        <article class="card">
+          <h3>Healthcare Simulation Models in Open-Source Python</h3>
+          <p class="meta">NHS Strategy Unit | Python</p>
+          <p>Reproduced healthcare simulation models in open-source Python, including an NHS 111 model, and examined what others need in order to reproduce the results.</p>
+          <ul>
+            <li>Identified reproducibility gaps in published models</li>
+            <li>Used open-source tooling and clear documentation</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">NHS</span><span class="chip">Reproducibility</span></div>
+          <!-- <a class="link" href="YOUR_GITHUB_LINK">View on GitHub &rarr;</a> -->
+        </article>
+
+        <!-- Copy one of the cards above to add more projects. -->
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <p class="label">Career</p>
+      <h2>Work Experience</h2>
+      <div class="timeline">
+
+        <article class="role">
+          <div class="top"><h3>Senior Associate</h3><span class="when">Promoted 2024 to 2025</span></div>
+          <p class="org">KC Overseas Education</p>
+          <ul>
+            <li>Built a Microsoft Forms and Power BI tracking system with unique traceable IDs for live KPI reporting.</li>
+            <li>Worked with the data analyst team to deliver dashboards for senior management.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="top"><h3>Operations Trainee (Contingent Worker)</h3><span class="when">Tata Consultancy Services</span></div>
+          <p class="org">Morgan Stanley</p>
+          <ul>
+            <li>Supported operations in an investment banking setting with a focus on accuracy and process.</li>
+            <li>Built the foundation for a career in financial markets operations and client services.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="top"><h3>Intern, Healthcare Simulation</h3><span class="when">Internship</span></div>
+          <p class="org">NHS Strategy Unit</p>
+          <ul>
+            <li>Reproduced healthcare simulation models in open-source Python.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="top"><h3>Production Operator (Part Time)</h3><span class="when">Current</span></div>
+          <p class="org">Lennox Foods, Galgate</p>
+          <ul>
+            <li>Work in a fast-paced food manufacturing environment alongside my studies, with a focus on quality and consistency.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <p class="label">Qualifications</p>
+      <h2>Education</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>MSc Business Analytics</h3>
+          <p class="meta">Lancaster University, UK | September 2025 to September 2026</p>
+          <p>All academic requirements completed. Dissertation on reproducing a published diagnostic pathway simulation model.</p>
+        </article>
+        <!-- Add your undergraduate degree by copying the card above. -->
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <p class="label">Credentials</p>
+      <h2>Certifications</h2>
+      <div class="grid">
+        <!-- Replace these placeholders with your real certifications. -->
+        <article class="card">
+          <h3>Certification name</h3>
+          <p class="meta">Issuer | Year</p>
+          <a class="link" href="#">Verify credential &rarr;</a>
+        </article>
+        <article class="card">
+          <h3>Certification name</h3>
+          <p class="meta">Issuer | Year</p>
+          <a class="link" href="#">Verify credential &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h2>Let us talk</h2>
+      <div class="contact">
+        <div class="contact-info">
+          <p>I am available to join full time immediately. Send a message and I will reply as soon as possible.</p>
+          <dl>
+            <dt>Email</dt>
+            <dd><a href="mailto:pratikbaingane1106@gmail.com">pratikbaingane1106@gmail.com</a></dd>
+            <dt>Location</dt>
+            <dd>Preston, UK (open to relocation)</dd>
+            <dt>LinkedIn</dt>
+            <dd><a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener">linkedin.com/in/your-profile</a></dd>
+            <dt>GitHub</dt>
+            <dd><a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">github.com/your-username</a></dd>
+          </dl>
+        </div>
+
+        <!-- Replace YOUR_FORM_ID with your Formspree form ID. -->
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit" id="send">Send message</button>
+          <div id="status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>&copy; <span id="year"></span> Pratik Baingane. All rights reserved.</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('status');
+  const sendBtn = document.getElementById('send');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = '';
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'Sending...';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) throw new Error('Request failed');
+      form.reset();
+      statusEl.style.color = '#1d7a46';
+      statusEl.textContent = 'Thank you. Your message has been sent.';
+    } catch (err) {
+      statusEl.style.color = '#b3261e';
+      statusEl.textContent = 'Something went wrong. Please email me directly at pratikbaingane1106@gmail.com.';
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'Send message';
+    }
+  });
+</script>
+</body>
+</html>
